@@ -35,5 +35,8 @@
       };
       default = zig-nix-deez;
     };
+    overlay = final: prev: {
+      zig-nix-deez = pkgs.callPackage self.packages.zig-nix-deez;
+    };
   });
 }
