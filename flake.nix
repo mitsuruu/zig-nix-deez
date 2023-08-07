@@ -1,12 +1,12 @@
 {
   inputs = {
     zicross.url = github:flyx/Zicross;
-    nixpkgs.url = github:NixOS/nixpkgs;
+    nixpkgs-unstable.url = github:NixOS/nixpkgs/nixpkgs-unstable;
     flake-utils.url = github:numtide/flake-utils;
   };
-  outputs = {self, zicross, nixpkgs, flake-utils}:
+  outputs = {self, zicross, nixpkgs-unstable, flake-utils}:
       with flake-utils.lib; eachSystem allSystems (system: let
-    pkgs = import nixpkgs {
+    pkgs = import nixpkgs-unstable {
       inherit system;
       overlays = [
         zicross.overlays.zig
